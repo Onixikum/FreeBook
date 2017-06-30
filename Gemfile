@@ -8,6 +8,9 @@ end
 
 gem 'rails', '~> 5.1.1'
 gem 'bcrypt'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'bootstrap-sass'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
