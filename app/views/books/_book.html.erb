@@ -1,0 +1,23 @@
+<tr>
+  <td class="book-name">
+    <p><span class="glyphicon glyphicon-book"></span> <%= link_to book.name, book %></p>
+  </td>
+  <td class="book-autor">
+    <p><span class="glyphicon glyphicon-user"></span> <%= "#{book.author}" %></p>
+  </td>
+  <td class="status">
+    <p><span class="glyphicon glyphicon-eye-open"></span> In</p>
+  </td>
+
+  <% if current_user.admin? %>
+  <td>
+    <p class="administration">
+      <%= link_to "Edit", edit_book_path(book), class: "btn btn-warning btn-xs" %>
+      <%= link_to "Delete", book, method: :delete,
+                            data: { confirm: "You sure?" },
+                            class: 'btn btn-danger btn-xs' %>
+    </p>
+  </td>
+  <% end %>
+
+</tr>

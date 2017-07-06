@@ -1,10 +1,12 @@
 <footer class="footer">
   <small>
-    <%= link_to "FreeBook", root_path %>
+    <span class="glyphicon glyphicon-education"></span> <%= link_to "FreeBook", root_path %>
   </small>
   <nav>
     <ul>
-      <li><%= link_to "User",   '#' %></li>
+    <% if logged_in? %>
+      <li><span class="glyphicon glyphicon-user"></span> <%= link_to "#{current_user.name}", current_user %></li>
+    <% end %>
     </ul>
   </nav>
 </footer>

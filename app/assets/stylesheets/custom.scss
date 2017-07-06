@@ -14,6 +14,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #DCDCDC;
 }
 
 section {
@@ -162,5 +163,153 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* Books list */
+
+.table-responsive {
+  h3 {
+    padding-left: 15px;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.7em;
+  }
+  table {
+    border: 5px solid #2F4F4F;
+    border-style: ridge;
+    border-collapse: collapse;
+    thead {
+      background-color: #333333;
+      tr {
+        border-bottom: 4px solid #2F4F4F;
+        border-style: ridge;
+        td {
+          padding-top: 15px;
+          padding-left: 20px;
+          p {
+            font-family: sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 0;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    tbody {
+      background-color: #F5F5F5;
+
+      tr{
+        border-bottom: 1px solid #C0C0C0;
+        td {
+          padding-top: 15px;
+          padding-left: 20px;
+          color: #4B0082;
+          p {
+            font-family: serif;
+            font-size: 1.1em;
+            a {
+              color: #4B0082;
+            }
+          }
+        }
+      }
+      tr:nth-child(2n) {background: #F0FFF0;}
+      tr:hover td {background: #B0C4DE;}
+    }
+  }
+  .book-name {
+    font-style: oblique;
+    font-weight: bold;
+  }
+  .book-autor {
+    font-style: italic;
+    font-weight: 500;
+  }
+  .status {
+    font-style: normal;
+    font-weight: 900;
+    font-variant: small-caps;
+  }
+  .administration {
+    text-align: center;
+  }
+}
+
+/* Book */
+
+.star {
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.likes {
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.btn-click {
+  margin-top: 10px;
+  text-align: right;
+  font-family: sans-serif;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 300px;
+  a {
+    margin: 0;
+    height: 270px;
+    img {
+      height: 100%;
+      text-align: center;
+      font-family: sans-serif;
+      font-style: oblique;
+      font-weight: bold;
+      font-size: 2em;
+      padding-top: 110px;
+      color: black;
+    }
+  }
+}
+
+.book-name-show {
+  font-family: serif;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.book-author-show {
+  font-family: serif;
+  font-size: 1.7em;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.description {
+  p {
+    padding-top: 15px;
+    text-align: justify;
+    text-indent: 25px;
+    font-family: serif;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 500;
   }
 }

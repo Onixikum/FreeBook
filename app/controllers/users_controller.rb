@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
-    before_action :logged_in_user, only: [:edit, :update, :show]
-    before_action :correct_user,   only: [:edit, :update, :show]
-    before_action :admin,          only: [:index, :destroy]
+    before_action :logged_in_user
+    skip_before_action :logged_in_user,  only: [:new, :create]
+    before_action :correct_user,         only: [:edit, :update]
+    before_action :admin,                only: [:index, :destroy]
+    before_action :viewing_of_a_profile, only: :show
 
   def index
     @users = User.paginate(page: params[:page])
   end
 
-  def new
-    @user = User.new
-  end
-
   def show
     @user = User.find(params[:id])
+  end
+
+  def new
+    @user = User.new
   end
 
   def create
@@ -61,14 +63,23 @@ class UsersController < ApplicationController
       end
     end
 
-    def correct_user
+    def this_user
       @user = User.find(params[:id])
+    end
+
+    def correct_user
+      this_user
       redirect_to(root_url) unless current_user?(@user)
     end
 
     def admin
-      unless logged_in_user
+      #unless logged_in_user
         redirect_to(root_url) unless current_user.admin?
-      end
+      #end
+    end
+
+    def viewing_of_a_profile
+      this_user
+      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
     end
 end

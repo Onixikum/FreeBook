@@ -1,0 +1,57 @@
+<% provide(:title, @book.name) %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md">
+      <h1 class="book-name-show">
+        <span class="glyphicon glyphicon-book"></span> <%= "#{@book.name}" %>
+      </h1>
+      <h2 class="book-author-show">
+        <span class="glyphicon glyphicon-user"></span> <%= "#{@book.author}" %>
+      </h2>
+
+      <div class="rov">
+        <div class="col-md-3">
+          <p class="star">
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+            <span class="glyphicon glyphicon-star"></span>
+          </p>
+        </div>
+        <div class="col-md-2">
+          <p class="likes">Likes: <%= "#{10}" %></p>
+        </div>
+        <div class="col-md-7">
+          <p class="btn-click">
+            <a href="#" class="btn btn-success" role="button">Take</a>
+          </p>
+        </div>
+      </div>
+
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-3 center-block">
+          <a class="thumbnail">
+            <img src="..." data-src="holder.js/100%x180" class="img-thumbnail" alt="Book foto">
+          </a>
+        </div>
+        <div class="col-md-9 description">
+          <p>
+            <%= "#{@book.description}" %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <p>comments</p>
+    </div>
+
+    <div class="col-md-12">
+      <p>history</p>
+    </div>
+
+    </div>
+  </div>
+</div>

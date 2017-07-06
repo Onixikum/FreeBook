@@ -13,3 +13,12 @@ User.create!(name:  "Admin",
                password:              password,
                password_confirmation: password)
 end
+
+100.times do |n|
+  name = Faker::Book.title
+  author = Faker::Book.author
+  description = Faker::Lorem.sentence(25)
+  Book.create!(name:        name,
+               author:      author,
+               description: description)
+end
