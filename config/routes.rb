@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'books#index'
-  get  '/signup',    to: 'users#new'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  match '/signup', to: 'users#new',          via: 'get'
+  match '/signup', to: 'users#create',       via: 'post'
+  match '/login',  to: 'sessions#new',       via: 'get'
+  match '/login',  to: 'sessions#create',    via: 'post'
+  match '/logout', to: 'sessions#destroy',   via: 'delete'
   resources :users
   resources :books
 end
