@@ -22,3 +22,14 @@ end
                author:      author,
                description: description)
 end
+
+5.times do |u|
+  user = u+1
+  100.times do |b|
+    book = b+1
+    content = Faker::Lorem.sentence(10)
+    Comment.create!(content: content,
+                    user_id: user,
+                    book_id: book)
+  end
+end

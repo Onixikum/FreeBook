@@ -1,0 +1,18 @@
+<% provide(:title, 'Add Comment') %>
+
+<div class="row">
+  <div class="col-md-12">
+      <h1 class="book-name-show">
+        <span class="glyphicon glyphicon-book"></span> <%= "#{@book.name}" %>
+      </h1>
+      <h2 class="book-author-show">
+        <span class="glyphicon glyphicon-user"></span> <%= "#{@book.author}" %>
+      </h2>
+    <%= form_for(@comment) do |f| %>
+      <%= f.hidden_field :book_id, :value => @book.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Add Comment", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

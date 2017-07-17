@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :comments
+  has_many :books, through: :comments
+
   attr_accessor :remember_token
   before_save { email.downcase! }
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
