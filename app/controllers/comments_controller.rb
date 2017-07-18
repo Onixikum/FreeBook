@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :correct_author, only: [:edit, :update]
+  before_action :comment_del,    only: :destroy
 
   def new
     book_id = params[:book_id]
@@ -42,5 +44,20 @@ class CommentsController < ApplicationController
 
     def comment_params
       params.require(:comment).permit(:book_id, :user_id, :content)
+    end
+
+    def author_comment
+      @comment = Comment.find(params[:id])
+      @comment_user = @comment.user
+    end
+
+    def correct_author
+      author_comment
+      redirect_to(root_url) unless current_user?(@comment_user)
+    end
+
+    def comment_del
+      author_comment
+      redirect_to(root_url) unless current_user?(@comment_user) || current_user.admin?
     end
 end

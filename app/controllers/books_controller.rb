@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @books = Book.paginate(page: params[:page], per_page: 15)

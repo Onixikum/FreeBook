@@ -1,0 +1,19 @@
+<div class="comment">
+  <p class="comment-user">
+    <span class="glyphicon glyphicon-user"></span> <%= "#{comment.user.name}" %>
+  </p>
+  <p class="comment-content">
+    <span class="glyphicon glyphicon-comment"></span> <%= "#{comment.content}" %>
+  </p>
+  <p class="nav-comment">
+    <% if i_author?(comment) %>
+      <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-warning btn-xs" %>
+    <% end %>
+
+    <% if i_author?(comment) || current_user.admin? %>
+      <%= link_to "Delete", comment, controller: :comments, method: :delete,
+                                data: { confirm: "You sure?" },
+                                class: 'btn btn-danger btn-xs'  %>
+    <% end %>
+  </p>
+</div>

@@ -50,24 +50,10 @@
       <% end %>
     </div>
     <div class="col-md-12">
-      <% @comments.each do |comment| %>
-      <div class="comment">
-        <p class="comment-user">
-          <span class="glyphicon glyphicon-user"></span> <%= "#{comment.user.name}" %>
-        </p>
-        <p class="comment-content">
-          <span class="glyphicon glyphicon-comment"></span> <%= "#{comment.content}" %>
-        </p>
-        <p class="nav-comment">
-          <%= link_to "Edit", edit_comment_path(comment), class: "btn btn-warning btn-xs" %>
-          <%= link_to "Delete", comment, controller: :comments, method: :delete,
-                                data: { confirm: "You sure?" },
-                                class: 'btn btn-danger btn-xs'  %>
-
-        </p>
+    <%= render @comments %>
+      <div class="center">
+       <%= will_paginate(@comments) %>
       </div>
-      <% end %>
-      <%= will_paginate(@comments) %>
     </div>
 
     <div class="col-md-12">
