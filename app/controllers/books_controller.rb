@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  skip_before_action :logged_in_user,  only: :index
   before_action :admin, only: [:new, :create, :edit, :update, :destroy]
 
   def index
